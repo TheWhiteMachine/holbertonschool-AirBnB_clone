@@ -1,13 +1,13 @@
 "#!/usr/bin/python3"
 import uuid
 import datetime
-"""a"""
+"""Base model class"""
 
 
 class BaseModel():
-    """BseModel"""
+    """BseModel with the principal function to inherit"""
     def __init__(self, id=uuid.uuid4(), created_at=None, updated_at=None):
-        """the constructor"""
+        """the constructor of base"""
         self.id = str(id)
 
         timeFormat = datetime.datetime.now()
@@ -16,17 +16,17 @@ class BaseModel():
         self.updated_at = timeFormat
 
     def save(self):
-        """save"""
+        """saves a new version of class"""
         timeFormat = datetime.datetime.now()
         self.updated_at = timeFormat
 
     def __str__(self):
-        """str"""
+        """str version to print"""
         txt = "[{}] (<{}>) <{}>"
         return txt.format(BaseModel.__name__, self.id, self.__dict__)
 
     def to_dict(self):
-        """To_dict"""
+        """To_dict function to have a dictionary version of data"""
         dictio = {}
 
         dictio.update({"created_at": self.created_at.isoformat()})
