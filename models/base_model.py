@@ -27,11 +27,9 @@ class BaseModel():
 
     def to_dict(self):
         """To_dict function to have a dictionary version of data"""
-        dictio = {}
-        dictio.update({"__class__": BaseModel.__name__})
-        dictio.update({"created_at": self.created_at.isoformat()})
-        dictio.update({"updated_at": self.updated_at.isoformat()})
-        for item in self.__dict__.items():
-            dictio[item[0]] = item[1]
 
-        return dictio
+        self.__dict__.update({"__class__": BaseModel.__name__})
+        self.__dict__.update({"created_at": self.created_at.isoformat()})
+        self.__dict__.update({"updated_at": self.updated_at.isoformat()})
+
+        return self.__dict__
