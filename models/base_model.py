@@ -1,7 +1,6 @@
 "#!/usr/bin/python3"
 import uuid
 import datetime
-import json
 """a"""
 
 
@@ -12,14 +11,14 @@ class BaseModel():
         self.id = str(id)
 
         timeFormat = datetime.datetime.now()
-        self.created_at = timeFormat.isoformat()
+        self.created_at = timeFormat
         timeFormat = datetime.datetime.now()
-        self.updated_at = timeFormat.isoformat()
+        self.updated_at = timeFormat
 
     def save(self):
         """save"""
         timeFormat = datetime.datetime.now()
-        self.updated_at = timeFormat.isoformat()
+        self.updated_at = timeFormat
 
     def __str__(self):
         """str"""
@@ -28,5 +27,11 @@ class BaseModel():
 
     def to_dict(self):
         """To_dict"""
+        dictio = {}
 
-        return self.__dict__
+        dictio.update({"created_at": self.created_at.isoformat()})
+        dictio.update({"updated_at": self.updated_at.isoformat()})
+        for item in self.__dict__.items():
+            dictio[item[0]] = item[1]
+
+        return dictio
