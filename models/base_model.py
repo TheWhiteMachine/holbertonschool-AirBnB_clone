@@ -1,8 +1,9 @@
 "#!/usr/bin/python3"
-"""a"""
 import uuid
 import datetime
 import json
+"""a"""
+
 
 class BaseModel():
     """BseModel"""
@@ -24,9 +25,8 @@ class BaseModel():
         """str"""
         txt = "[{}] (<{}>) <{}>"
         return txt.format(BaseModel.__name__, self.id, self.__dict__)
-    
+
     def to_dict(self):
         """To_dict"""
 
         return self.__dict__
-    
