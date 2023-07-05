@@ -13,12 +13,12 @@ class BaseModel():
 
         timeFormat = datetime.datetime.now()
         self.created_at = timeFormat
-        timeFormat = datetime.now()
+        timeFormat = datetime.datetime.now()
         self.updated_at = timeFormat
 
     def save(self):
         """saves a new version of class and updates the time of update"""
-        timeFormat = datetime.now()
+        timeFormat = datetime.datetime.now()
         self.updated_at = timeFormat
 
     def __str__(self):
@@ -29,7 +29,7 @@ class BaseModel():
     def to_dict(self):
         """To_dict function to have a dictionary version of data"""
 
-        self.__dict__.update({"__class__": BaseModel.__name__})
+        self.__dict__.update({"__class__": __class__.__name__})
         self.__dict__.update({"created_at": self.created_at.isoformat()})
         self.__dict__.update({"updated_at": self.updated_at.isoformat()})
 
