@@ -31,6 +31,7 @@ class TestBase(unittest.TestCase):
             self.assertIn(key, b3_dict)
 
     def testTodictFormat(self):
+        """a test for the isoformat values"""
         B4 = BaseModel()
         b4_dict = B4.to_dict()
         created_at = datetime.fromisoformat(b4_dict['created_at'])
