@@ -43,6 +43,7 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(updated_at, datetime)
 
     def testExist(self):
+        """A function that check if the base model attributes exists"""
         B5 = BaseModel()
         self.assertTrue(hasattr(B5, "id"))
         self.assertTrue(hasattr(B5, "created_at"))
