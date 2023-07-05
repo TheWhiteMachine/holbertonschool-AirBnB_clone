@@ -24,7 +24,7 @@ class BaseModel():
     def __str__(self):
         """str a function to print the class"""
         txt = "[{}] ({}) {}"
-        return txt.format(BaseModel.__name__, self.id, self.__dict__)
+        return txt.format(__class__.__name__, self.id, self.__dict__)
 
     def to_dict(self):
         """To_dict function to have a dictionary version of data"""
