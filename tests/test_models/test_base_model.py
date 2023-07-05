@@ -7,6 +7,9 @@ from models.base_model import BaseModel
 
 class TestBase(unittest.TestCase):
     """The test class to work in unicode"""
+    def testSetUp(self):
+        self.B = BaseModel()
+
     def testBase(self):
         """A test to check if all values are the correct type"""
         B1 = BaseModel()
