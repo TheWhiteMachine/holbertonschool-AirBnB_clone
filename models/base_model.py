@@ -8,7 +8,7 @@ for other classes:"""
 class BaseModel():
     """BseModel with the principal function to inherit"""
     def __init__(self, id=uuid.uuid4(), created_at=None, updated_at=None):
-        """the constructor of base"""
+        """The constructor of base of the class BaseModel"""
         self.id = str(id)
 
         timeFormat = datetime.datetime.now()
