@@ -7,9 +7,17 @@ from models.base_model import BaseModel
 
 class TestBase(unittest.TestCase):
     """The test class to work in unicode"""
+
     def testSetUp(self):
         """Check if you can generate an instance"""
         self.B = BaseModel()
+
+    def testExist(self):
+        """A function that check if the base model attributes exists"""
+        B5 = BaseModel()
+        self.assertTrue(hasattr(B5, "id"))
+        self.assertTrue(hasattr(B5, "created_at"))
+        self.assertTrue(hasattr(B5, "updated_at"))
 
     def testBase(self):
         """A test to check if all values are the correct type"""
@@ -42,13 +50,6 @@ class TestBase(unittest.TestCase):
         updated_at = datetime.fromisoformat(b4_dict['updated_at'])
         self.assertIsInstance(created_at, datetime)
         self.assertIsInstance(updated_at, datetime)
-
-    def testExist(self):
-        """A function that check if the base model attributes exists"""
-        B5 = BaseModel()
-        self.assertTrue(hasattr(B5, "id"))
-        self.assertTrue(hasattr(B5, "created_at"))
-        self.assertTrue(hasattr(B5, "updated_at"))
 
 
 if __name__ == '__main__':
