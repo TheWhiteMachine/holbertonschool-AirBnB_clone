@@ -8,6 +8,7 @@ from models.base_model import BaseModel
 class TestBase(unittest.TestCase):
     """The test class to work in unicode"""
     def testSetUp(self):
+        """Check if you can generate an instance"""
         self.B = BaseModel()
 
     def testBase(self):
