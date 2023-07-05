@@ -41,6 +41,21 @@ class TestBase(unittest.TestCase):
         b3_dict = B3.to_dict()
         for key in keys:
             self.assertIn(key, b3_dict)
+    
+    def test_to_dict_returns(self):
+        """a test to check if a dictionary is returned"""
+        B3 = BaseModel()
+        instance_dict = B3.to_dict()
+        self.assertIsInstance(instance_dict, dict)
+        
+    def test_to_dict_attributes(self):
+        """chcckes if args in dictionary are expected"""
+        B3 = BaseModel()
+        instances_dicts = B3.to_dict()
+        self.assertIn('id', instances_dicts)
+        self.assertIn('created_at', instances_dicts)
+        self.assertIn('updated_at', instances_dicts)
+        
 
     def testTodictFormat(self):
         """a test for the isoformat values"""
@@ -50,60 +65,6 @@ class TestBase(unittest.TestCase):
         updated_at = datetime.fromisoformat(b4_dict['updated_at'])
         self.assertIsInstance(created_at, datetime)
         self.assertIsInstance(updated_at, datetime)
-
-
-if __name__ == '__main__':
-    unittest.main()
-#!/usr/bin/python3
-"""unitest for base model"""
-import unittest
-from datetime import datetime
-from models.base_model import BaseModel
-
-
-class TestBaseModel(unittest.TestCase):
-    def setUp(self):
-        self.model = BaseModel()
-
-    def test_exist(self):
-        self.assertTrue(hasattr(self.model, 'id'))
-        self.assertTrue(hasattr(self.model, 'created_at'))
-        self.assertTrue(hasattr(self.model, 'updated_at'))
-
-    def test_type(self):
-        self.assertIsInstance(self.model.id, str)
-        self.assertIsInstance(self.model.created_at, datetime)
-        self.assertIsInstance(self.model.updated_at, datetime)
-
-    def test_save_updates_updated_at(self):
-        old_updated_at = self.model.updated_at
-        self.model.save()
-        new_updated_at = self.model.updated_at
-        self.assertNotEqual(old_updated_at, new_updated_at)
-
-    def test_to_dict_returns_dictionary(self):
-        obj_dict = self.model.to_dict()
-        self.assertIsInstance(obj_dict, dict)
-
-    def test_to_dict_contains_all_attributes(self):
-        obj_dict = self.model.to_dict()
-        self.assertIn('id', obj_dict)
-        self.assertIn('created_at', obj_dict)
-        self.assertIn('updated_at', obj_dict)
-
-    def test_to_dict_has_correct_values(self):
-        obj_dict = self.model.to_dict()
-        self.assertEqual(obj_dict['id'], self.model.id)
-        self.assertEqual(obj_dict['created_at'],
-                         self.model.created_at.isoformat())
-        self.assertEqual(obj_dict['updated_at'],
-                         self.model.updated_at.isoformat())
-
-    def test_str_representation(self):
-        str_repr = str(self.model)
-        self.assertIn(self.model.__class__.__name__, str_repr)
-        self.assertIn(self.model.id, str_repr)
-        self.assertIn(str(self.model.__dict__), str_repr)
 
 
 if __name__ == '__main__':
