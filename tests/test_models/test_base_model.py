@@ -30,6 +30,14 @@ class TestBase(unittest.TestCase):
         for key in keys:
             self.assertIn(key, b3_dict)
 
+    def testTodictFormat(self):
+        B4 = BaseModel()
+        b4_dict = B4.to_dict()
+        created_at = datetime.fromisoformat(b4_dict['created_at'])
+        updated_at = datetime.fromisoformat(b4_dict['updated_at'])
+        self.assertIsInstance(created_at, datetime)
+        self.assertIsInstance(updated_at, datetime)
+
 
 if __name__ == '__main__':
     unittest.main()
