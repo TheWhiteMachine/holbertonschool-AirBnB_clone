@@ -1,7 +1,8 @@
 "#!/usr/bin/python3"
 import uuid
 import datetime
-"""Base model class"""
+"""Write a class BaseModel that defines all common attributes/methods
+for other classes:"""
 
 
 class BaseModel():
@@ -16,12 +17,12 @@ class BaseModel():
         self.updated_at = timeFormat
 
     def save(self):
-        """saves a new version of class"""
+        """saves a new version of class and updates the time of update"""
         timeFormat = datetime.datetime.now()
         self.updated_at = timeFormat
 
     def __str__(self):
-        """str version to print"""
+        """str a function to print the class"""
         txt = "[{}] (<{}>) <{}>"
         return txt.format(BaseModel.__name__, self.id, self.__dict__)
 
