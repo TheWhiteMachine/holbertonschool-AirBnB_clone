@@ -28,7 +28,7 @@ class BaseModel():
 
     def to_dict(self):
         """To_dict function to have a dictionary version of data"""
-        instance_dict = self.__dict__.copy()
+        instance_dict = self.__dict__
         instance_dict.update({"__class__": __class__.__name__})
         instance_dict.update({"created_at": self.created_at.isoformat()})
         instance_dict.update({"updated_at": self.updated_at.isoformat()})
