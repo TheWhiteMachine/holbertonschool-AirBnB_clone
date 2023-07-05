@@ -13,17 +13,17 @@ class BaseModel():
 
         timeFormat = datetime.datetime.now()
         self.created_at = timeFormat
-        timeFormat = datetime.datetime.now()
+        timeFormat = datetime.now()
         self.updated_at = timeFormat
 
     def save(self):
         """saves a new version of class and updates the time of update"""
-        timeFormat = datetime.datetime.now()
+        timeFormat = datetime.now()
         self.updated_at = timeFormat
 
     def __str__(self):
         """str a function to print the class"""
-        txt = "[{}] (<{}>) <{}>"
+        txt = "[{}] ({}) <{}>"
         return txt.format(BaseModel.__name__, self.id, self.__dict__)
 
     def to_dict(self):
