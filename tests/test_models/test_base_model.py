@@ -16,7 +16,7 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(B1.id, str)
         self.assertIsInstance(B1.created_at, datetime)
         self.assertIsInstance(B1.updated_at, datetime)
-    
+
     def testSave(self):
         """a test to check if the save function changes the
         value of update_at"""
@@ -44,9 +44,10 @@ class TestBase(unittest.TestCase):
 
     def testExist(self):
         B5 = BaseModel()
-        self.assertTrue(hasattr(B5,"id"))
-        self.assertTrue(hasattr(B5,"created_at"))
-        self.assertTrue(hasattr(B5,"updated_at"))
+        self.assertTrue(hasattr(B5, "id"))
+        self.assertTrue(hasattr(B5, "created_at"))
+        self.assertTrue(hasattr(B5, "updated_at"))
+
 
 if __name__ == '__main__':
     unittest.main()
