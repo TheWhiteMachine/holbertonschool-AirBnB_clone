@@ -24,8 +24,8 @@ class BaseModel:
 
     def save(self):
         """saves a new version of class and updates the time of update"""
-        models.storage.save()
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def __str__(self):
         """str a function to print the class"""
