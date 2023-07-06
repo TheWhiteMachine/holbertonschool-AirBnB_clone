@@ -28,7 +28,7 @@ class FileStorage:
         serialized_obj = {}
         for key, value in self.__objects.items():
             serialized_obj[key] = value.to_dict()
-        with open(self.__file_path, "w") as file:
+        with open(self.__file_path,"w", encoding="utf-8") as file:
             json.dump(serialized_obj, file)
 
     def reload(self):
@@ -36,7 +36,7 @@ class FileStorage:
         __objects (only if the JSON file (__file_path) exists ;
         otherwise, does nothing."""
         try:
-            with open(self.__file_path, "r") as file:
+            with open(self.__file_path, "r", encoding="utf-8") as file:
                 for key, value in json.load(file).items():
                     value = BaseModel(**value)
                     self.__objects[key] = value
