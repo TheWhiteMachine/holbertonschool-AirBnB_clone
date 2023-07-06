@@ -1,24 +1,28 @@
 "#!/usr/bin/python3"
 import uuid
-import datetime
+from datetime import datetime
 """Write a class BaseModel that defines all common attributes/methods
 for other classes:"""
 
 
 class BaseModel():
     """BseModel with the principal function to inherit"""
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """The constructor of base of the class BaseModel"""
-        self.id = str(uuid.uuid4())
-
-        timeFormat = datetime.datetime.now()
-        self.created_at = timeFormat
-        timeFormat = datetime.datetime.now()
-        self.updated_at = timeFormat
+        if kwargs:
+            for keys, value in kwargs.items():
+                if keys == "created_at" or keys == "updated_at":
+                    setattr(BaseModel, keys, datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
+                elif keys != "__class__":
+                    setattr(BaseModel, keys, value)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def save(self):
         """saves a new version of class and updates the time of update"""
-        timeFormat = datetime.datetime.now()
+        timeFormat = datetime.now()
         self.updated_at = timeFormat
 
     def __str__(self):
