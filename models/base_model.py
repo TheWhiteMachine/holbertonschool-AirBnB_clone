@@ -15,7 +15,7 @@ class BaseModel:
                 if keys == "created_at" or keys == "updated_at":
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 if keys != "__class__":
-                    setattr(BaseModel, keys, value)
+                    setattr(self, keys, value)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
