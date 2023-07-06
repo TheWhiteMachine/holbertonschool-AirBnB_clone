@@ -2,7 +2,7 @@
 from models.base_model import BaseModel
 import json
 
-"""FileStorage is a file were the function to work with deserialization and 
+"""FileStorage is a file were the function to work with deserialization and
 serialization"""
 
 
@@ -16,13 +16,15 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        """A function that sets in __objects the obj with key <obj class name>.id"""
+        """A function that sets in __objects the obj with key
+        <obj class name>.id"""
         if obj is not None:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
             self.__objects[key] = obj
 
     def save(self):
-        """A function that serializes __objects to the JSON file (path: __file_path)"""
+        """A function that serializes __objects to the JSON file
+        (path: __file_path)"""
         serialized_obj = {}
         for key, value in self.__objects.items():
             serialized_obj[key] = value.to_dict()
@@ -30,9 +32,9 @@ class FileStorage:
             json.dump(serialized_obj, file)
 
     def reload(self):
-        """A function that : deserializes the JSON file to 
-        __objects (only if the JSON file (__file_path) exists ; 
-        otherwise, does nothing. """
+        """A function that : deserializes the JSON file to
+        __objects (only if the JSON file (__file_path) exists ;
+        otherwise, does nothing."""
         try:
             with open(self.__file_path, "r") as file:
                 for key, value in json.load(file).items():
