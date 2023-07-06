@@ -3,7 +3,7 @@ from models.base_model import BaseModel
 import json
 
 
-class FileStorage():
+class FileStorage:
     """The class FileStorage which is in charge of the file storage methods"""
     __file_path = 'file.json'
     __objects = {}
