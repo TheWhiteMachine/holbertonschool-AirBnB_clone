@@ -4,17 +4,22 @@ import json
 
 
 class FileStorage():
+    """The class FileStorage which is in charge of the file storage methods"""
     __file_path = 'file.json'
     __objects = {}
 
     def all(self):
+        """A function that returns the dictionary __objects"""
         return self.__objects
 
     def new(self, obj):
-        key = "{}.{}".format(type(obj).__name__, obj.id)
-        self.__objects[key] = obj
+        """A function that sets in __objects the obj with key <obj class name>.id"""
+        if obj is not None:
+            key = "{}.{}".format(obj.__class__.__name__, obj.id)
+            self.__objects[key] = obj
 
     def save(self):
+        """A function that serializes __objects to the JSON file (path: __file_path)"""
         serialized_obj = {}
         for key, value in self.__objects.items():
             serialized_obj[key] = value.to_dict()
@@ -22,11 +27,13 @@ class FileStorage():
             json.dump(serialized_obj, file)
 
     def reload(self):
+        """A function that : deserializes the JSON file to 
+        __objects (only if the JSON file (__file_path) exists ; 
+        otherwise, does nothing. """
         try:
             with open(self.__file_path, "r") as file:
                 for key, value in json.load(file).items():
                     value = BaseModel(**value)
                     self.__objects[key] = value
-
         except FileNotFoundError:
             pass
