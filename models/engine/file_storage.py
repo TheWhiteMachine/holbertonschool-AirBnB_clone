@@ -2,6 +2,9 @@
 from models.base_model import BaseModel
 import json
 
+"""FileStorage is a file were the function to work with deserialization and 
+serialization"""
+
 
 class FileStorage:
     """The class FileStorage which is in charge of the file storage methods"""
