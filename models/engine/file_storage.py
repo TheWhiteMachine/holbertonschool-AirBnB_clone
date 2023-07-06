@@ -18,9 +18,9 @@ class FileStorage:
     def new(self, obj):
         """A function that sets in __objects the obj with key
         <obj class name>.id"""
-        if obj is not None:
-            key = "{}.{}".format(type(obj).__name__, obj.id)
-            self.__objects[key] = obj
+
+        key = "{}.{}".format(type(obj).__name__, obj.id)
+        self.__objects[key] = obj
 
     def save(self):
         """A function that serializes __objects to the JSON file
