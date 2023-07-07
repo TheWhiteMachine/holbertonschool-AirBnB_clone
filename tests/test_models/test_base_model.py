@@ -65,6 +65,12 @@ class TestBase(unittest.TestCase):
         updated_at = datetime.fromisoformat(b4_dict['updated_at'])
         self.assertIsInstance(created_at, datetime)
         self.assertIsInstance(updated_at, datetime)
+    
+    def testStr(self):
+        B6 = BaseModel
+        pr = str(B6)
+        self.assertIn(self.__class__.__name__,pr)
+        self.assertIn(self.__class__.id)
 
 
 if __name__ == '__main__':
