@@ -11,4 +11,4 @@ This project implements a console-based application for managing AirBnB-like obj
 
 1. Clone the repository:
 
-'$ git clone https://github.com/TheWhiteMachine/holbertonschool-AirBnB_clone.git'
+'''$ git clone https://github.com/TheWhiteMachine/holbertonschool-AirBnB_clone.git'''
