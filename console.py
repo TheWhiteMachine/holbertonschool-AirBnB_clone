@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""""
+"""
     This module contains the Console
 """
 import cmd
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
 from models.state import State
 from models.city import City
 from models.amenity import Amenity
@@ -43,10 +44,10 @@ class HBNBCommand(cmd.Cmd):
         splitedARG = arg.split()
         if len(arg) < 1:
             print("** class name missing **")
-        elif splitedARG[0] == "BaseModel":
-            newBaseModel = BaseModel()
-            newBaseModel.save()
-            print(newBaseModel.id)
+        elif splitedARG[0] in self.classesList:
+            newModel = eval(splitedARG[0])()
+            print(newModel.id)
+            newModel.save()
         else:
             print("** class doesn't exist **")
 
