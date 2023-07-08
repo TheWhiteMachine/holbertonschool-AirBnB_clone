@@ -1,4 +1,5 @@
 # AirBnB Console
+
 The AirBnB Console is a command-line application designed to manage AirBnB-like objects. It provides a user-friendly interface for creating, displaying, updating, and deleting instances of various classes such as BaseModel, User, State, City, Amenity, Place, and Review.
 
 Features
@@ -14,13 +15,14 @@ This project implements a console-based application for managing AirBnB-like obj
 
 ## Installation
 
-1. Clone the repository:
+1.Clone the repository:
 
 - `$ git clone https://github.com/TheWhiteMachine/holbertonschool-AirBnB_clone.git`
 
-2. Navigate to the project directory:
+2.Navigate to the project directory:
 
 ## Usage
+
 To start the AirBnB console, run the following command: ./console.py
 
 Once the console is running, you can use the following commands:
@@ -33,6 +35,7 @@ Once the console is running, you can use the following commands:
 - `update <class_name> <id> <attribute_name> "<attribute_value>"`: Updates the attribute of an instance based on the class name and ID. The changes are saved to the JSON file.
 
 ## Available Classes
+
 - `BaseModel`
 - `User`
 - `State`
@@ -42,6 +45,7 @@ Once the console is running, you can use the following commands:
 - `Review`
 
 ## Project Structure
+
 The project follows the following structure:
 
 - console.py: The main entry point of the console application.
