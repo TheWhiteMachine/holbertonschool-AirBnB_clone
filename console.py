@@ -24,7 +24,6 @@ class HBNBCommand(cmd.Cmd):
         "Place",
         "Review",
     ]
-    
 
     def do_quit(self, arg):
         """ to exit the program"""
@@ -67,9 +66,8 @@ class HBNBCommand(cmd.Cmd):
                 objects = storage.all()
                 if class_and_id in objects:
                     print(objects[class_and_id])
-                else: print("** no instance found **")
-        
-
+                else:
+                    print("** no instance found **")
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id (save the
@@ -88,7 +86,8 @@ class HBNBCommand(cmd.Cmd):
                 if class_and_id in objects:
                     del objects[class_and_id]
                     storage.save()
-                else: print("** no instance found **")
+                else:
+                    print("** no instance found **")
 
     def do_all(self, arg):
         """Prints all string representation of all instances based or
@@ -107,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
                         my_list.append(str(objects[obj]))
                 print(my_list)
             else:
-                 print("** class doesn't exist **")
+                print("** class doesn't exist **")
 
     def do_update(self, arg):
         """Updates an instance based on the class name and id by adding or
@@ -124,7 +123,6 @@ class HBNBCommand(cmd.Cmd):
             idValue = eval(arg[1])
             prop = eval(arg[2])
             value = arg[3]
-
             if splitedARG[0] not in self.classesList:
                 print("** class doesn't exist **")
             else:
@@ -134,8 +132,8 @@ class HBNBCommand(cmd.Cmd):
                     for obj in objects:
                         if obj.idValue == arg[1]:
                             obj.prop == value
-
-                else: print("** no instance found **")
+                else:
+                    print("** no instance found **")
 
 
 if __name__ == '__main__':

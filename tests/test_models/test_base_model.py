@@ -13,7 +13,7 @@ class TestBase(unittest.TestCase):
         self.B = BaseModel()
 
     def testExist(self):
-        """A function that check if the base model attributes exists"""
+        """A test that check if the attributes exists in the class"""
         B5 = BaseModel()
         self.assertTrue(hasattr(B5, "id"))
         self.assertTrue(hasattr(B5, "created_at"))
