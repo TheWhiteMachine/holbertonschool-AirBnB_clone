@@ -1,7 +1,12 @@
-# holbertonschool-AirBnB_clone
-holbertonschool-AirBnB_clone
-
 # AirBnB Console
+The AirBnB Console is a command-line application designed to manage AirBnB-like objects. It provides a user-friendly interface for creating, displaying, updating, and deleting instances of various classes such as BaseModel, User, State, City, Amenity, Place, and Review.
+
+Features
+Create Instances: You can create new instances of different classes and save them to the JSON file.
+Display Information: The console allows you to view detailed information about specific instances based on their class name and ID.
+Delete Instances: You can delete instances by specifying their class name and ID, with the changes being automatically saved to the JSON file.
+Listing Instances: The console provides the option to list all instances or filter them by class name.
+Update Attributes: You can update the attributes of instances by specifying their class name, ID, attribute name, and new value. The changes are saved to the JSON file.
 
 ## Description
 
@@ -35,3 +40,19 @@ Once the console is running, you can use the following commands:
 - `Amenity`
 - `Place`
 - `Review`
+
+## Project Structure
+The project follows the following structure:
+
+- console.py: The main entry point of the console application.
+- models/: Contains the classes representing AirBnB objects.
+- models/base_model.py: Defines the BaseModel class, from which other classes inherit.
+- models/state.py: Defines the State class.
+- models/city.py: Defines the City class.
+- models/amenity.py: Defines the Amenity class.
+- models/place.py: Defines the Place class.
+- models/review.py: Defines the Review class.
+- models/user.py: Defines the User class.
+- models/engine/: Contains the storage engine for persisting data.
+- models/engine/file_storage.py: Implements the FileStorage class for storing data in JSON files.
+- tests/: Contains unit tests for the project.
