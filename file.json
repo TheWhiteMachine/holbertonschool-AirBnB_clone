@@ -108,10 +108,16 @@
 	"User.dccd84a5-8cdc-4121-aae5-60c811eee8c5": {
 		"id": "dccd84a5-8cdc-4121-aae5-60c811eee8c5",
 		"created_at": "2023-07-08T11:48:30.470836",
-		"updated_at": "2023-07-08T11:48:30.470846",
-		"first_name": "John",
+		"updated_at": "2023-07-08T12:05:18.650764",
+		"first_name": "Rosa",
 		"email": "airbnb2@mail.com",
 		"password": "root",
+		"__class__": "User"
+	},
+	"User.996e5968-8cbb-4ff2-ba06-ee9998922e08": {
+		"id": "996e5968-8cbb-4ff2-ba06-ee9998922e08",
+		"created_at": "2023-07-08T12:02:16.232282",
+		"updated_at": "2023-07-08T12:02:16.232327",
 		"__class__": "User"
 	}
 }
