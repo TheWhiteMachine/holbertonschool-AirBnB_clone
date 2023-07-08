@@ -2,9 +2,9 @@
 	"BaseModel.2eab6709-e84d-4b19-9245-80c1bf3b84ec": {
 		"id": "2eab6709-e84d-4b19-9245-80c1bf3b84ec",
 		"created_at": "2023-07-06T12:24:25.004409",
-		"updated_at": "2023-07-06T12:24:25.004413",
-		"name": "My_First_Model",
-		"my_number": 89,
+		"updated_at": "2023-07-08T10:39:07.128293",
+		"name": "Juan_carlos",
+		"my_number": 28,
 		"__class__": "BaseModel"
 	},
 	"BaseModel.1a09ff32-593e-4b03-81a2-e61a95210596": {

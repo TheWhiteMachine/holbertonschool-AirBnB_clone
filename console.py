@@ -134,7 +134,7 @@ class HBNBCommand(cmd.Cmd):
             return
         for key, value in dictionary.items():
             if key == class_and_id:
-                setattr(value, splitedARG[2], splitedARG[3])
+                setattr(value, splitedARG[2], eval(splitedARG[3]))
                 value.save()
                               
 if __name__ == '__main__':
