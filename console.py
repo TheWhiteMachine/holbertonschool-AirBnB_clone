@@ -124,18 +124,19 @@ class HBNBCommand(cmd.Cmd):
         dictionary = storage.all()
         class_and_id = splitedARG[0] + '.' + splitedARG[1]
         if splitedARG[0] not in self.classesList:
-                print("** no instace found **")
-                return
+            print("** no instance found **")
+            return
         if len(splitedARG) < 3:
             print("** atribute name missing **")
             return
         elif len(splitedARG) < 4:
-            print ("** value missing **")
+            print("** value missing **")
             return
         for key, value in dictionary.items():
             if key == class_and_id:
                 setattr(value, splitedARG[2], eval(splitedARG[3]))
                 value.save()
-                              
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
