@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """We test te class FileStorage and all its functions"""
 import unittest
-from datetime import datetime
+import os
+import json
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 from models import storage
+import models
 
 
 class TestBase(unittest.TestCase):
@@ -13,6 +15,13 @@ class TestBase(unittest.TestCase):
     def testSetUp(self):
         """Check if you can generate an instance"""
         self.f = FileStorage()
+        self.path = "file.json"
+
+    def tearDown(self):
+        """Erase the file to do the test from the begining"""
+        if os.path.exists(self.path):
+            os.remove(self.path)
+    
 
     def test_all(self):
         """check if the all function returns some value after I add an
@@ -24,7 +33,7 @@ class TestBase(unittest.TestCase):
         storage.new(my_model)
         storage.save()
         Objects = storage.all()
-        
+        self.assertIsInstance(Objects, dict)
         self.assertIsNotNone(Objects)
     
 
