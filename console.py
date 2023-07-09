@@ -76,19 +76,18 @@ class HBNBCommand(cmd.Cmd):
         splitedARG = arg.split()
         if len(splitedARG) < 1:
             print("** class name missing **")
+        elif splitedARG[0] not in self.classesList:
+            print("** class doesn't exist **")
         elif len(splitedARG) < 2:
             print("** instance id missing **")
         else:
-            if splitedARG[0] not in self.classesList:
-                print("** class doesn't exist **")
+            class_and_id = splitedARG[0] + '.' + splitedARG[1]
+            objects = storage.all()
+            if class_and_id in objects:
+                del objects[class_and_id]
+                storage.save()
             else:
-                class_and_id = splitedARG[0] + '.' + splitedARG[1]
-                objects = storage.all()
-                if class_and_id in objects:
-                    del objects[class_and_id]
-                    storage.save()
-                else:
-                    print("** no instance found **")
+                print("** no instance found **")
 
     def do_all(self, arg):
         """Prints all string representation of all instances based or
@@ -99,7 +98,7 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             for obj in objects:
                 my_list.append(str(objects[obj]))
-                print(my_list)
+            print(my_list)
         else:
             if splitedARG[0] in self.classesList:
                 for obj in objects:

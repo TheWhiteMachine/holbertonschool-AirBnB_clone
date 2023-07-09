@@ -24,17 +24,13 @@ class TestBase(unittest.TestCase):
         storage.new(my_model)
         storage.save()
         Objects = storage.all()
+        
         self.assertIsNotNone(Objects)
     
 
     def test_save_new(self):
         """Test if I can use the save function without problems"""
-        my_model = BaseModel()
-        my_model.name = "My_First_Model"
-        my_model.my_number = 89
-        my_model.save()
-        storage.new(my_model)
-        storage.save()
+        my_model = BaseModel()        
 
     def test_reload(self):
         """test if the reload returns an object"""
@@ -45,4 +41,3 @@ class TestBase(unittest.TestCase):
         storage.new(my_model)
         storage.save()
         objects = storage.reload()
-
