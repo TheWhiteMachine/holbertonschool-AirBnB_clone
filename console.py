@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    This module contains the Console
+    This module contains the Console and its methods
 """
 import cmd
 from models import storage

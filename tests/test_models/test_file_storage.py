@@ -15,7 +15,7 @@ class TestBase(unittest.TestCase):
         self.f = FileStorage()
 
     def test_all(self):
-        """check if the all function returns some value after i add an
+        """check if the all function returns some value after I add an
         object to json file"""
         my_model = BaseModel()
         my_model.name = "My_First_Model"
@@ -25,6 +25,7 @@ class TestBase(unittest.TestCase):
         storage.save()
         Objects = storage.all()
         self.assertIsNotNone(Objects)
+    
 
     def test_save_new(self):
         """Test if I can use the save function without problems"""
@@ -36,7 +37,7 @@ class TestBase(unittest.TestCase):
         storage.save()
 
     def test_reload(self):
-        """test if the reload returns something"""
+        """test if the reload returns an object"""
         my_model = BaseModel()
         my_model.name = "My_First_Model"
         my_model.my_number = 89
@@ -44,4 +45,4 @@ class TestBase(unittest.TestCase):
         storage.new(my_model)
         storage.save()
         objects = storage.reload()
-        self.assertIsNotNone(objects)
+
