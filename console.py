@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
             return
         dictionary = storage.all()
         class_and_id = splitedARG[0] + '.' + splitedARG[1]
-        if splitedARG[0] not in self.classesList:
+        if class_and_id not in dictionary:
             print("** no instance found **")
             return
         if len(splitedARG) < 3:
