@@ -15,7 +15,14 @@ class TestBase(unittest.TestCase):
         self.f = FileStorage()
 
     def test_all(self):
-        storage.all()
+        my_model = BaseModel()
+        my_model.name = "My_First_Model"
+        my_model.my_number = 89
+        my_model.save()
+        storage.new(my_model)
+        storage.save()
+        Objects = storage.all()
+        self.assertIsNotNone(Objects)
 
     def test_save_new(self):
         my_model = BaseModel()
@@ -26,4 +33,11 @@ class TestBase(unittest.TestCase):
         storage.save()
 
     def test_reload(self):
-        storage.reload()
+        my_model = BaseModel()
+        my_model.name = "My_First_Model"
+        my_model.my_number = 89
+        my_model.save()
+        storage.new(my_model)
+        storage.save()
+        objects = storage.reload()
+        self.assertIsNotNone(objects)
