@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""We test te class Base Model and all its functions"""
+"""We test te class FileStorage and all its functions"""
 import unittest
 from datetime import datetime
 from models.engine.file_storage import FileStorage
@@ -15,6 +15,8 @@ class TestBase(unittest.TestCase):
         self.f = FileStorage()
 
     def test_all(self):
+        """check if the all function returns some value after i add an
+        object to json file"""
         my_model = BaseModel()
         my_model.name = "My_First_Model"
         my_model.my_number = 89
@@ -25,6 +27,7 @@ class TestBase(unittest.TestCase):
         self.assertIsNotNone(Objects)
 
     def test_save_new(self):
+        """Test if I can use the save function without problems"""
         my_model = BaseModel()
         my_model.name = "My_First_Model"
         my_model.my_number = 89
@@ -33,6 +36,7 @@ class TestBase(unittest.TestCase):
         storage.save()
 
     def test_reload(self):
+        """test if the reload returns something"""
         my_model = BaseModel()
         my_model.name = "My_First_Model"
         my_model.my_number = 89
