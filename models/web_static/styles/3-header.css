@@ -1,0 +1,26 @@
+		header {
+			top: 0;
+			height: 70px;
+			width: 100%;
+			justify-content: center;
+			align-items: center;
+			border: 1px solid e93e3e;
+
+
+		}
+
+		header .borde {
+			width: 100%;
+			border-bottom: 1px solid #CCCCCC;
+		}
+
+		header .logo {
+			display: inline-block;
+			left: 20px;
+			justify-self: center;
+			height: 70px;
+			width: 100%;
+			background-image: url(../images/logo.png);
+			background-repeat: no-repeat;
+			background-position: left;
+		}
